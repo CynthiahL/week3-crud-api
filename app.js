@@ -68,9 +68,10 @@ app.delete('/todos/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const initialLength = todos.length;
   todos = todos.filter((t) => t.id !== id); // Array.filter() – non-destructive
-  if (todos.length === initialLength)
+  if (todos.length === initialLength) {
     return res.status(404).json({ error: 'Not found' });
-  res.status(204).send(); // Silent success
+  }
+  return res.status(204).send(); // Silent success
 });
 
 app.get('/todos/completed', (req, res) => {

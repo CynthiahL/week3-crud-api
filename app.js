@@ -24,8 +24,7 @@ app.get('/todos/completed', (req, res) => {
 // GET All – Read
 app.get('/todos', (req, res) => {
   const completed = todos.filter((t) => t.completed);
-  //res.json(completed);
-  //res.status(200).json(todos); // Send array as JSON
+  res.status(200).json(todos); // Send array as JSON
 });
 
 //return a specific todo by id
